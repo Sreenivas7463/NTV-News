@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%- article.title.rendered %></title> 
+    <title><%- article.title.rendered %></title>
     <meta name="description" content="<%- article.excerpt.rendered %>">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sreetv9.herokuapp.com/article/<%- artid %>/<%- mdid %>" >
+    <meta property="og:url" content="https://sreetv9.herokuapp.com/article/<%- artid %>/<%- mdid %>">
     <meta property="og:title" content="<%- article.title.rendered %>">
     <meta property="og:description" content="<%- article.excerpt.rendered %>">
     <meta property="og:image" content="<%- media.guid.rendered %>">
@@ -23,13 +24,14 @@
     <meta property="twitter:url" content="https://sreetv9.herokuapp.com/">
     <meta property="twitter:title" content="<%- article.title.rendered %>">
     <meta property="twitter:description" content="<%- article.excerpt.rendered %>">
-    <meta property="twitter:image" content="<%- media.guid.rendered %>"> 
+    <meta property="twitter:image" content="<%- media.guid.rendered %>">
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
 </head>
+
 <body>
     <header class="header">
         <div class="header__logo">NTV news</div>
@@ -38,40 +40,44 @@
 
     <div class="wrapper">
         <div class="news-single">
-                <a href="/">&larr;- Back </a>
-                <% if(article != null) { %>
-                    <h2><%- article.title.rendered %> &nbsp;<small id="<%- article.id %>"><%- article.date%></small></h2>
-                    <img src="<%- media.guid.rendered %>" alt="<%- article.title.rendered %>">
-                    <p><%- article.content.rendered %></p>
+            <a href="https://futureinurhands.in/e-book-bundle/" target="_blank">
+                <img src="https://pbs.twimg.com/media/GQA85xwWIAAKUtj?format=jpg&name=medium" />
+            </a>
+            <p><a href="/">&larr;- Back </a></p>
+            <% if(article !=null) { %>
+                <h2><%- article.title.rendered %> &nbsp;<small id="<%- article.id %>"><%- article.date%></small></h2>
+                <img src="<%- media.guid.rendered %>" alt="<%- article.title.rendered %>">
+                <p><%- article.content.rendered %></p>
                 <% } else { %>
                     No posts found.
-                <% } %>
+                    <% } %>
         </div>
-    </div>  
-    <script >
-   
-    
+    </div>
+    <script>
 
-        function modify()
-        {  var i=0;
-              // Get a NodeList of all .demo elements
+
+
+        function modify() {
+            var i = 0;
+            // Get a NodeList of all .demo elements
             const demoClasses = document.querySelectorAll('small');
             //alert(demoClasses.id);
             // Change the text of multiple elements with a loop
             demoClasses.forEach(element => {
-              //element.textContent = 'All demo classes updated.';
-              var date = $('#'+demoClasses[i].id).text();
-              
-    
-              var dt = moment(date).format('DD-MM-YYYY h:m:s a');
-              
-              $('#'+demoClasses[i].id).html(dt);
-    
-              i++;
+                //element.textContent = 'All demo classes updated.';
+                var date = $('#' + demoClasses[i].id).text();
+
+
+                var dt = moment(date).format('DD-MM-YYYY h:m:s a');
+
+                $('#' + demoClasses[i].id).html(dt);
+
+                i++;
             });
-            
+
         }
         setTimeout(modify, 3500);
-        </script>
+    </script>
 </body>
-</html> 
+
+</html>
